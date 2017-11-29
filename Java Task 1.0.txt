@@ -1,0 +1,26 @@
+package com.company;
+import java.io.*;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        try {
+            String line;
+            Process p = Runtime.getRuntime().exec
+                    (System.getenv("windir") +"\\system32\\"+"tasklist.exe");
+            BufferedReader input =
+                    new BufferedReader(new InputStreamReader(p.getInputStream(), "Cp866"));
+            while ((line = input.readLine()) != null) {
+                System.out.println(line);
+            }
+            input.close();
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+
+    }
+}
+
+
